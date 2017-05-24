@@ -1,0 +1,198 @@
+// This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
+h1,h2,h3,h4,h5,h6{
+   // font-family: $font-title;
+   // text-transform: uppercase;
+}
+.contact-head{
+    background:$brand-inverse;
+    color:$white;
+    height:auto;
+    line-height:1em;
+    font-size:18px;
+    padding:.7em 0;
+    font-family:$font-title; 
+    border-bottom:4px solid $brand-secondary;
+    .list-inline{
+       margin-bottom: 0;
+       .list-inline-item {
+            margin-right:1em;  
+            padding-right:1em;
+            border-right:1px solid rgba(255,255,255,.2);
+            &:last-child{
+                border-right:none;
+                margin-right:0;  
+                padding-right:0;
+            }
+            .fa{
+                color:$brand-primary;
+            }
+            p{
+                display:inline-block;
+                margin:0 0 0 1em;
+            }
+            span{
+                display: block;
+                font-weight: 300;
+                font-size:14px;
+            }
+       }
+   }
+   a{
+       color:$white;
+       margin-left:1em;
+   }
+}
+
+.navbar-brand{
+    text-transform: uppercase;
+    font-family: $font-title;
+    font-size:2em;
+}
+
+.navbar-nav{
+    text-transform: uppercase;
+    .menu-item{
+        margin-left:1em;
+        .nav-link{
+            font-weight: 500;
+            transition: all .2s ease-in-out; 
+            &:after{
+                content:"";
+                display:block;
+                margin:0 auto;
+                margin-top:5px;
+                width:0%;
+                transition: all .2s ease-in-out; 
+            }
+        }
+        &.active .nav-link,
+        .nav-link:hover{
+            &:after{
+                width:65%;
+                border:1px solid $brand-primary;
+            }
+        }
+    }
+}
+
+.post
+{
+    display:flex;
+   // flex-direction: row;
+   flex-direction: column;
+    flex-flow: row wrap;
+    margin-bottom:2.5em;
+    
+       .thumbnail-post{
+           flex:1 100%;
+           width:100%;
+           height:350px;
+           background-color: red;
+           background-position: center;
+           background-size: cover;
+
+       }
+        .entry-meta{
+            margin-right:1em;
+            order:1;
+            .posted-on time, 
+            .entry_comment {
+                 color:$brand-secondary;
+                 display:block;
+                 background:$brand-primary;
+                text-align: center;
+                width:70px;
+                font-weight: 700;
+                 font-size: $font-size-lg;
+            }
+            .posted-on time {
+                padding:10px 0;
+                line-height: 1;
+                span{    
+                    margin: 0 auto;
+                    display: block;
+                    text-transform: uppercase;
+                    &.day{
+                     padding-top:7px;
+                    }
+                }
+            }
+            .entry_comment{
+                height: 70px; 
+                line-height: 3;
+            }
+    }
+        .content-post{
+             order:2;
+           header .entry-title{
+                a{
+                    color:$brand-inverse;
+                    font-weight: 700;
+                    &:hover{
+                        text-decoration: none;
+                        color:$brand-inverse;
+                    }
+                }
+            }
+        }
+}
+
+.nav-links{
+    .nav-previous,
+    .nav-next{
+        em{
+            display:block;
+        }
+        a{
+            //background: #FFF;
+            display: block;
+            padding:.5em;
+            height:auto;
+            outline:1px solid $brand-primary;
+            text-decoration: none; 
+            transition: all .3s ease-in-out; 
+            &:hover{
+                background: $brand-primary;
+                color:#FFF;
+            }
+        }
+    }
+    
+}
+
+/*
+*       Comentario de post
+*/
+.comment-list{
+    li{
+        list-style: none;
+        .comment-meta{
+            font-size:$font-size-sm;
+        }
+        .comment-content{
+            background: $brand-secondary;
+            padding:.7em;
+            border-radius:10px; 
+            position:relative;
+            width:auto;
+            display:inline-block;
+            margin-top: 0;
+            margin-bottom:0;
+            margin-left:10px;
+            box-shadow:2px 2px 3px #B0BEC5;
+            &:after{
+                content:"";
+                display:block;
+                width:0;
+                top:0px;
+                left:-8px;
+                position:absolute;
+                border-left:10px solid transparent;
+                border-right:10px solid transparent;
+                border-top:10px solid $brand-secondary;
+                border-bottom:10px solid transparent;
+            }
+        }
+        
+    }
+}

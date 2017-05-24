@@ -1,39 +1,55 @@
 {
-  "name": "reklyser",
-  "version": "1.0.0",
-  "description": "=== Reklyser ===",
-  "main": "index.php",
+  "name": "understrap",
+  "version": "0.6.0",
+  "description": "Wordpress Theme framework",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "gulp copy-assets"
+  },
+  "engines": {
+    "npm": ">=2.1.8"
   },
   "repository": {
     "type": "git",
-    "url": "#"
+    "url": "https://github.com/holger1411/understrap.git"
   },
-  "author": "David Chay Diaz",
-  "license": "ISC",
-  "devDependencies": {
+  "keywords": [
+    "wordpress",
+    "theme",
+    "framework",
+    "bootstrap",
+    "underscores"
+  ],
+  "author": "Holger Koenemann",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/holger1411/understrap/issues"
+  },
+  "homepage": "https://understrap.com",
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
     "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
+    "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-cache": "^0.4.6",
-    "gulp-combine-media-queries": "^0.2.0",
+    "gulp-clone": "^1.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-filter": "^5.0.0",
+    "gulp-cssnano": "^2.1.2",
     "gulp-ignore": "^2.0.2",
     "gulp-imagemin": "^3.2.0",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-newer": "^1.3.0",
-    "gulp-notify": "^3.0.0",
+    "gulp-merge": "^0.1.1",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-rimraf": "^0.2.1",
-    "gulp-run-sequence": "^0.3.2",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.0",
+    "gulp-sourcemaps": "2.4.1",
     "gulp-uglify": "^2.1.2",
-    "gulp-uglifycss": "^1.0.8",
-    "gulp-util": "^3.0.8",
-    "gulp-zip": "^4.0.0"
+    "gulp-watch": "^4.3.11",
+    "merge2": "^1.0.3",
+    "run-sequence": "^1.2.2",
+    "gulp-clean-css": "^3.0.4",
+    "undescores-for-npm": "^1.0.0"
+  },
+  "devDependencies": {
   }
 }

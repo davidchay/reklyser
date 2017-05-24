@@ -1,0 +1,53 @@
+// Use this file to overwrite the basic Bootstrap variables and add your own variables
+// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder. 
+// Just copy a variable from /sass/bootstrap/_variables.scss, paste it here and edit the value.
+// As example you find one of the most important Bootstrap variable below: $brand-primary.
+// Thats the ugly Bootstrap blue used for all the links, primary buttons etc.
+// Just add your color code here, compile the theme.scss file to change this color everywhere
+
+//fuentes typograficas
+$font-family-sans-serif:        'Roboto', sans-serif;
+$font-title:                    'Lato', sans-serif;
+$headings-font-weight:          300;
+
+//Colores
+$white:                       #FBFBFA;
+$gray:                        #969796;
+$darkgray:                    #676C6A;
+$brand-primary:               #AA3939;///#CF6257;//#9B9A98;76AEB6
+$brand-secondary:             #D2D69E;
+$brand-inverse:               #2A302E;
+$brand-complementary:         #74BCC4;      
+
+
+$body-bg:                     $white;
+
+//$navbar-padding-y:              0;
+//$nav-link-padding:              1em 0px;
+
+
+$btn-border-radius:             0;
+$btn-border-radius-lg:          0;
+$btn-border-radius-sm:          0;
+$border-radius:                 0;
+$border-radius-lg:              0;
+$border-radius-sm:              0;
+
+//$btn-primary-color:              $brand-primary;
+//$btn-primary-bg:                 $brand-primary !default;
+//$btn-primary-border:             $btn-primary-bg !default;
+
+$pagination-color:                     lighten($gray,15%);
+$pagination-bg:                        $body-bg;
+
+$pagination-border-width:              1px;
+$pagination-border-color:              lighten($gray,15%);
+
+$pagination-hover-color:               #fff;
+$pagination-hover-bg:                  $brand-primary;
+$pagination-hover-border:              $brand-primary;
+/*
+$pagination-active-color:              $white !default;
+$pagination-active-bg:                 $brand-primary !default;
+$pagination-active-border:             $brand-primary !default;
+*/

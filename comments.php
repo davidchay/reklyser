@@ -1,13 +1,11 @@
 <?php
 /**
- * The template for displaying comments
+ * The template for displaying comments.
  *
- * This is the template that displays the area of the page that contains both the current comments
+ * The area of the page that contains both current comments
  * and the comment form.
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package Reklyser
+ * @package understrap
  */
 
 /*
@@ -20,65 +18,87 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div class="comments-area mt-5" id="comments">
 
-	<?php
-	// You can start editing here -- including this comment!
-	if ( have_comments() ) : ?>
-		<h2 class="comments-title">
+	<?php // You can start editing here -- including this comment! ?>
+
+	<?php if ( have_comments() ) : ?>
+		<h2 class="comments-title text-center">
 			<?php
-				printf( // WPCS: XSS OK.
-					esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'reklyser' ) ),
-					number_format_i18n( get_comments_number() ),
-					'<span>' . get_the_title() . '</span>'
-				);
+				$comments_number = get_comments_number();
+				if ( 1 === $comments_number ) {
+					printf(
+						/* translators: %s: post title */
+						esc_html_x( 'Un comentario', 'comments title', 'understrap' ),
+						'<span>' . get_the_title() . '</span>'
+					);
+				} else {
+					printf( // WPCS: XSS OK.
+						/* translators: 1: number of comments, 2: post title */
+						esc_html( _nx(
+							'%1$s Comentario',
+							'%1$s Comentarios',
+							$comments_number,
+							'comments title',
+							'understrap'
+						) ),
+						number_format_i18n( $comments_number ),
+						'<span>' . get_the_title() . '</span>'
+					);
+				}
 			?>
-		</h2>
+		</h2><!-- .comments-title -->
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'reklyser' ); ?></h2>
-			<div class="nav-links">
-
-				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'reklyser' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'reklyser' ) ); ?></div>
-
-			</div>
-		</nav>
-		<?php endif; // Check for comment navigation. ?>
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through. ?>
+			<nav class="comment-navigation row mt-5 mb-5" id="comment-nav-above">
+				<?php if ( get_previous_comments_link() ) { ?>
+					<div class="nav-previous col-6 text-right"><?php previous_comments_link( __( '&larr; Anteriores',
+					'understrap' ) ); ?></div>
+				<?php }
+if ( get_next_comments_link() ) { ?>
+					<div class="nav-next col-6 text-left"><?php next_comments_link( __( 'Recientes &rarr;',
+					'understrap' ) ); ?></div>
+				<?php } ?>
+			</nav><!-- #comment-nav-above -->
+		<?php endif; // check for comment navigation. ?>
 
 		<ol class="comment-list">
 			<?php
-				wp_list_comments( array(
-					'style'      => 'ol',
-					'short_ping' => true,
-				) );
+			wp_list_comments( array(
+				//'style'      => 'ol',
+				//'avatar_size' => 96,
+				//'short_ping' => true,
+				'callback' => '_comment', 
+				'avatar_size' => 96, 
+				 
+			) );
 			?>
-		</ol>
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'reklyser' ); ?></h2>
-			<div class="nav-links">
+		</ol><!-- .comment-list -->
 
-				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'reklyser' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'reklyser' ) ); ?></div>
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through. ?>
+			<nav class="comment-navigation row mt-5 mb-5" id="comment-nav-below">
+				<?php if ( get_previous_comments_link() ) { ?>
+					<div class="nav-previous col-6 text-right"><?php previous_comments_link( __( '&larr; Anteriores',
+					'understrap' ) ); ?></div>
+				<?php }
+if ( get_next_comments_link() ) { ?>
+					<div class="nav-next col-6 text-left"><?php next_comments_link( __( 'Recientes &rarr;',
+					'understrap' ) ); ?></div>
+				<?php } ?>
+			</nav><!-- #comment-nav-below -->
+		<?php endif; // check for comment navigation. ?>
 
-			</div>
-		</nav>
-		<?php
-		endif; // Check for comment navigation.
+	<?php endif; // endif have_comments(). ?>
 
-	endif; // Check for have_comments().
-
-
-	// If comments are closed and there are comments, let's leave a little note, shall we?
-	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
-
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'reklyser' ); ?></p>
 	<?php
-	endif;
+	// If comments are closed and there are comments, let's leave a little note, shall we?
+	if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+		?>
 
-	comment_form();
-	?>
+		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'understrap' ); ?></p>
 
-</div>
+	<?php endif; ?>
+
+	<?php comment_form(); // Render comments form. ?>
+
+</div><!-- #comments -->

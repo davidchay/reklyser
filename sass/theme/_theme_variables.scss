@@ -11,10 +11,11 @@ $font-title:                    'Lato', sans-serif;
 $headings-font-weight:          300;
 
 //Colores
-$white:                       #FBFBFA;
+$white:                       #FFFFFF;//#FBFBFA;
 $gray:                        #969796;
+//$gray-light:                    #f5f5f5;
 $darkgray:                    #676C6A;
-$brand-primary:               #AA3939;///#CF6257;//#9B9A98;76AEB6
+$brand-primary:               #D60303;//AA3939;///#CF6257;//#9B9A98;76AEB6
 $brand-secondary:             #D2D69E;
 $brand-inverse:               #2A302E;
 $brand-complementary:         #74BCC4;      
@@ -25,6 +26,11 @@ $body-bg:                     $white;
 //$navbar-padding-y:              0;
 //$nav-link-padding:              1em 0px;
 
+//Links
+$link-color:            $brand-primary !default;
+$link-decoration:       none !default;
+$link-hover-color:      darken($link-color, 15%) !default;
+$link-hover-decoration: none;
 
 $btn-border-radius:             0;
 $btn-border-radius-lg:          0;

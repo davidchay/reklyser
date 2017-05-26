@@ -72,7 +72,7 @@ endif;
 if(!function_exists('understrap_entry_comment')):
 function understrap_entry_comment ($id){
 
-if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		$comments=wp_count_comments($id);
 		echo '<span class="entry_comment">';
 		echo '<span class="fa-stack fa-lg">';

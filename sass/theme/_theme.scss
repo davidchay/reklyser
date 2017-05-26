@@ -5,19 +5,19 @@ h1,h2,h3,h4,h5,h6{
 }
 .contact-head{
     background:$brand-inverse;
-    color:$white;
+    color:$gray-lighter;
     height:auto;
     line-height:1em;
     font-size:18px;
     padding:.7em 0;
     font-family:$font-title; 
-    border-bottom:4px solid $brand-secondary;
+    border-bottom:4px solid $brand-primary-light;
     .list-inline{
        margin-bottom: 0;
        .list-inline-item {
             margin-right:1em;  
             padding-right:1em;
-            border-right:1px solid rgba(255,255,255,.2);
+            border-right:1px solid rgba($gray-light,.1);
             &:last-child{
                 border-right:none;
                 margin-right:0;  
@@ -38,8 +38,11 @@ h1,h2,h3,h4,h5,h6{
        }
    }
    a{
-       color:$white;
+       color:$brand-primary;
        margin-left:1em;
+       &:hover{
+           color:$brand-primary-light;
+       }
    }
 }
 
@@ -47,6 +50,7 @@ h1,h2,h3,h4,h5,h6{
     text-transform: uppercase;
     font-family: $font-title;
     font-size:2em;
+    font-weight: 300;
 }
 
 .navbar-nav{
@@ -54,7 +58,7 @@ h1,h2,h3,h4,h5,h6{
     .menu-item{
         margin-left:1em;
         .nav-link{
-            font-weight: 500;
+            font-weight: 700;
             transition: all .2s ease-in-out; 
             &:after{
                 content:"";
@@ -101,7 +105,7 @@ h1,h2,h3,h4,h5,h6{
                 .entry_comment {
                     display:block;
                     color:$white;
-                    background:$brand-inverse;
+                    background:$brand-primary;
                     text-align: center;
                     width:70px;
                     font-weight: 700;
@@ -121,7 +125,7 @@ h1,h2,h3,h4,h5,h6{
                     }
                 }
                 .entry_comment{
-                    color:$brand-secondary;
+                    color:$brand-primary;
                      border:1px solid $gray-lighter;
                     background:$white;
                     
@@ -131,7 +135,7 @@ h1,h2,h3,h4,h5,h6{
             }//entry meta
             .content-post{
                 order:2;
-                width:auto;
+                width: calc(100%  - (70px + 1em));
                 header .entry-title{
                         a{
                             color:$brand-inverse;
@@ -141,6 +145,11 @@ h1,h2,h3,h4,h5,h6{
                                 color:$brand-inverse;
                             }
                         }
+                }
+                .entry-content{
+                   width: 100%;
+                    color:$gray-light;
+                    line-height: 1.5;
                 }
             }//content-post
        }
@@ -173,18 +182,23 @@ h1,h2,h3,h4,h5,h6{
 *       Comentario de post
 */
 .comment-list{
+    padding:0;
+    margin:0;
     li{
         list-style: none;
         .comment-meta{
             font-size:$font-size-sm;
+        }
+        .avatar{
+            border-radius: 48px;
         }
         .comment-content{
             background: $brand-secondary;
             padding:.7em;
             border-radius:10px; 
             position:relative;
-            width:auto;
-            display:inline-block;
+            //width:auto;
+            //display:inline-block;
             margin-top: 0;
             margin-bottom:0;
             margin-left:10px;

@@ -45,7 +45,7 @@ function understrap_pagination() {
 	echo '<nav aria-label="Page navigation"><ul class="pagination ">' . "\n";
 
 	/**    Link to first page, plus ellipses if necessary */
-	if ( ! in_array( 1, $links ) ) {
+	//if (  in_array( 1, $links ) ) {
 		$class = 1 == $paged ? ' class="active page-item"' : ' class="page-item"';
 
 		printf( '<li %s><a class="page-link" href="%s"><i class="fa fa-step-backward" aria-hidden="true"></i></a></li>' . "\n",
@@ -55,12 +55,13 @@ function understrap_pagination() {
 		if ( get_previous_posts_link() ) {
 			printf( '<li class="page-item"><span class="page-link">%1$s</span></li> ' . "\n",
 			get_previous_posts_link( '<span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span><span class="sr-only">Previous page</span>' ) );
+			
 		}
 
 		if ( ! in_array( 2, $links ) ) {
 			echo '<li class="page-item"></li>';
 		}
-	}
+	//}
 
 	// Link to current page, plus 2 pages in either direction if necessary.
 	sort( $links );
@@ -88,6 +89,70 @@ function understrap_pagination() {
 	}
 
 	echo '</ul></nav>' . "\n";
+	
+
+	
 }
 
 endif;
+
+
+
+
+function _tk_pagination() {
+    global $paged, $wp_query;
+
+    if (empty($paged)) {
+        $paged = 1;
+    }
+
+    $pages = $wp_query->max_num_pages;
+    if (!$pages) {
+        $pages = 1;
+    }
+
+    if (1 != $pages):
+
+        $input_width = strlen((string)$pages) + 3;
+?>
+<div class="text-center m-auto">
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item disabled hidden-xs">
+                <span class="page-link">
+                    <span aria-hidden="true"><?php _e('Pagina', '_tk'); ?> <?php echo $paged; ?> <?php _e('de', '_tk'); ?> <?php echo $pages; ?></span>
+                </span>
+            </li>
+            <li class="page-item hidden-xs"><a class="page-link" href="<?php echo get_pagenum_link(1); ?>" aria-label="First"><i class="fa fa-step-backward"></i></a></li>
+
+            <?php if ($paged == 1): ?>
+            <li class="page-item disabled"><a class="page-link" href="<?php echo get_pagenum_link($paged-1); ?>" aria-label="Previous"><i class="fa fa-chevron-left"></i></a></li>
+            <?php else: ?>
+                <li class="page-item hidden-xs"><a class="page-link" href="<?php echo get_pagenum_link($paged-1); ?>" aria-label="Previous"><i class="fa fa-chevron-left"></i></a></li>
+            <?php endif; ?>
+
+            <?php $start_page = min(max($paged - 2, 1), max($pages - 4, 1)); ?>
+            <?php $end_page   = min(max($paged + 2, 5), $pages); ?>
+
+            <?php for ($i = $start_page; $i <= $end_page; $i++): ?>
+                <?php if ($paged == $i): ?>
+                    <li class="active page-item"><span class="page-link"><?php echo $i; ?><span class="sr-only">(current)</span></span></li>
+                <?php else: ?>
+                    <li class="page-item"><a class="page-link" href="<?php echo get_pagenum_link($i); ?>"><?php echo $i; ?></a></li>
+                <?php endif; ?>
+            <?php endfor; ?>
+
+            <?php if ($paged == $pages): ?>
+                <li class="disabled page-item"><span class="page-link"><span class="hidden-xs aria-hidden"><i class="fa fa-chevron-right"></i></span></span></li>
+            <?php else: ?>
+                <li class="page-item"><a class="page-link" href="<?php echo get_pagenum_link($paged+1); ?>" aria-label="Next"><span class="hidden-xs"><i class="fa fa-chevron-right"></i></span></a></li>
+            <?php endif; ?>
+
+            <li class="page-item"><a class="page-link" href="<?php echo get_pagenum_link($pages); ?>" aria-label='Last'><span class='hidden-xs'><i class="fa fa-step-forward" aria-hidden="true"></i> </span></a></li>
+            
+        </ul>
+    </nav>
+</div>
+<?php
+    endif;
+}

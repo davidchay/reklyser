@@ -65,12 +65,8 @@ if ( get_next_comments_link() ) { ?>
 		<ol class="comment-list">
 			<?php
 			wp_list_comments( array(
-				//'style'      => 'ol',
-				//'avatar_size' => 96,
-				//'short_ping' => true,
 				'callback' => '_comment', 
 				'avatar_size' => 96, 
-				 
 			) );
 			?>
 		</ol><!-- .comment-list -->

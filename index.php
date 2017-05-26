@@ -59,7 +59,7 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 			</main><!-- #main -->
 
 			<!-- The pagination component -->
-			<?php understrap_pagination(); ?>
+			<?php _tk_pagination(); ?>
 		</div><!-- #primary -->
 
 		<!-- Do the right sidebar check -->

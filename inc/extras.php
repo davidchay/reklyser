@@ -67,7 +67,7 @@ if ( ! function_exists( 'change_logo_class' ) ) {
 	 */
 	function change_logo_class( $html ) {
 
-		$html = str_replace( 'class="custom-logo"', 'class="img-responsive"', $html );
+		$html = str_replace( 'class="custom-logo"', 'class="img-responsive img-fluid"', $html );
 		$html = str_replace( 'class="custom-logo-link"', 'class="navbar-brand custom-logo-link"', $html );
 		$html = str_replace( 'alt=""', 'title="Home" alt="logo"' , $html );
 
@@ -181,5 +181,3 @@ function _comment( $comment, $args, $depth ) {
 }
 
 endif; // ends check for _tk_comment()
-
-

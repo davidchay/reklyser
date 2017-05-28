@@ -55,7 +55,7 @@ function understrap_pagination() {
 		if ( get_previous_posts_link() ) {
 			printf( '<li class="page-item"><span class="page-link">%1$s</span></li> ' . "\n",
 			get_previous_posts_link( '<span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span><span class="sr-only">Previous page</span>' ) );
-			
+
 		}
 
 		if ( ! in_array( 2, $links ) ) {
@@ -89,9 +89,9 @@ function understrap_pagination() {
 	}
 
 	echo '</ul></nav>' . "\n";
-	
 
-	
+
+
 }
 
 endif;
@@ -118,17 +118,17 @@ function _tk_pagination() {
 <div class="text-center m-auto">
     <nav aria-label="Page navigation">
         <ul class="pagination">
-            <li class="page-item disabled hidden-xs">
+            <li class="page-item disabled hidden-sm-down">
                 <span class="page-link">
                     <span aria-hidden="true"><?php _e('Pagina', '_tk'); ?> <?php echo $paged; ?> <?php _e('de', '_tk'); ?> <?php echo $pages; ?></span>
                 </span>
             </li>
-            <li class="page-item hidden-xs"><a class="page-link" href="<?php echo get_pagenum_link(1); ?>" aria-label="First"><i class="fa fa-step-backward"></i></a></li>
+            <li class="page-item hidden-sm-down"><a class="page-link" href="<?php echo get_pagenum_link(1); ?>" aria-label="First"><i class="fa fa-step-backward"></i></a></li>
 
             <?php if ($paged == 1): ?>
-            <li class="page-item disabled"><a class="page-link" href="<?php echo get_pagenum_link($paged-1); ?>" aria-label="Previous"><i class="fa fa-chevron-left"></i></a></li>
+            <li class="page-item hidden-sm-down disabled"><a class="page-link" href="<?php echo get_pagenum_link($paged-1); ?>" aria-label="Previous"><i class="fa fa-chevron-left"></i></a></li>
             <?php else: ?>
-                <li class="page-item hidden-xs"><a class="page-link" href="<?php echo get_pagenum_link($paged-1); ?>" aria-label="Previous"><i class="fa fa-chevron-left"></i></a></li>
+                <li class="page-item hidden-sm-down hidden-xs"><a class="page-link" href="<?php echo get_pagenum_link($paged-1); ?>" aria-label="Previous"><i class="fa fa-chevron-left"></i></a></li>
             <?php endif; ?>
 
             <?php $start_page = min(max($paged - 2, 1), max($pages - 4, 1)); ?>
@@ -143,13 +143,13 @@ function _tk_pagination() {
             <?php endfor; ?>
 
             <?php if ($paged == $pages): ?>
-                <li class="disabled page-item"><span class="page-link"><span class="hidden-xs aria-hidden"><i class="fa fa-chevron-right"></i></span></span></li>
+                <li class="disabled page-item hidden-sm-down"><span class="page-link"><span class="aria-hidden"><i class="fa fa-chevron-right"></i></span></span></li>
             <?php else: ?>
-                <li class="page-item"><a class="page-link" href="<?php echo get_pagenum_link($paged+1); ?>" aria-label="Next"><span class="hidden-xs"><i class="fa fa-chevron-right"></i></span></a></li>
+                <li class="page-item  hidden-sm-down"><a class="page-link" href="<?php echo get_pagenum_link($paged+1); ?>" aria-label="Next"><span ><i class="fa fa-chevron-right"></i></span></a></li>
             <?php endif; ?>
 
-            <li class="page-item"><a class="page-link" href="<?php echo get_pagenum_link($pages); ?>" aria-label='Last'><span class='hidden-xs'><i class="fa fa-step-forward" aria-hidden="true"></i> </span></a></li>
-            
+            <li class="page-item hidden-sm-down"><a class="page-link" href="<?php echo get_pagenum_link($pages); ?>" aria-label='Last'><span class='hidden-xs '><i class="fa fa-step-forward" aria-hidden="true"></i> </span></a></li>
+
         </ul>
     </nav>
 </div>

@@ -33,45 +33,73 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
 		'understrap' ); ?></a>
 
+		<div class="hidden-md-up">
+			<?php if ( ! has_custom_logo() ) { ?>
+				<?php if ( is_front_page() && is_home() ) : ?>
+					<h1><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+				<?php else : ?>
+					<a class="" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+				<?php endif; ?>
+			<?php } else {
+				the_custom_logo();
+			} ?><!-- end custom logo -->
+
+
+		</div>
+
+
+
 		<div class="contact-head">
 			<div class="container">
 				<div class="row align-items-center">
-					<div class="col-10">
-						<ul class="list-inline">
-							<li class="list-inline-item">
-								<i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> 
-								<p>
-									Central Norte No. 142. 
+					<div class="col-12 col-md-10">
+						<div class="row no-gutters content-header-info">
+							<div class="box-header-info col-12 col-md-4">
+								<div class="box-icon">
+									<i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+								</div>
+								<div class="box-content">
+									Central Norte No. 142.
 									<span>Tapachula, Chiapas.</span>
-								</p>
-							</li>
-							<li class="list-inline-item">
-								<i class="fa fa-phone fa-2x" aria-hidden="true"></i> 
-								<p>
-									(962) 62 6 74 03 
+								</div>
+							</div>
+							<div class="box-header-info col-12 col-md-4">
+								<div class="box-icon">
+									<i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+								</div>
+								<div class="box-content">
+									(962) 62 6 74 03
 									<span>contacto@mail.com</span>
-								</p>
-							</li>
-							<li class="list-inline-item">
-								<i class="fa fa-clock-o fa-2x" aria-hidden="true"></i> 
-								<p>
-									Lun-Vie de 9 - 17 hrs 
+								</div>
+							</div>
+							<div class="box-header-info col-12 col-md-4">
+								<div class="box-icon">
+									<i class="fa fa-clock-o fa-2x" aria-hidden="true"></i>
+								</div>
+								<div class="box-content">
+									Lun-Vie de 9 - 17 hrs
 									<span>Sab de 9 - 14 hrs</span>
-								</p>
-							</li>
-						</ul>
+								</div>
+							</div>
+						</div><!-- ./row -->
 					</div>
-					<div class="col-2 text-right">
-						<a href="#">
-							<i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>
-						</a>
-						<a href="#">
-							<i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
-						</a>
+					<div class="col-12 col-md-2 text-center text-md-right">
+						<div class="row header-social">
+							<div class="col-6">
+								<a href="#">
+									<i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>
+								</a>
+							</div>
+							<div class="col-6">
+								<a href="#">
+									<i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div><!-- ./row -->
 					</div>
 				</div><!-- ./row -->
 			</div>
-			
+
 		</div>
 
 		<nav class="navbar navbar-toggleable-md  navbar-light" style="background-color:#FFF;">
@@ -80,27 +108,31 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<div class="container">
 		<?php endif; ?>
 
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
 
+		<div class="hidden-sm-down">
 					<!-- Your site title as branding in the menu -->
 					<?php if ( ! has_custom_logo() ) { ?>
 
 						<?php if ( is_front_page() && is_home() ) : ?>
 
 							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-							
+
 						<?php else : ?>
 
 							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-						
+
 						<?php endif; ?>
-						
-					
+
+
 					<?php } else {
 						the_custom_logo();
 					} ?><!-- end custom logo -->
+				</div>
+					<button class="navbar-toggler navbar-toggler-center" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+
+						<span class="navbar-toggler-icon"></span>
+
+					</button>
 
 				<!-- The WordPress Menu goes here -->
 				<?php wp_nav_menu(

@@ -9443,27 +9443,31 @@ h1.navbar-brand a:hover {
     max-width: 400px; }
 
 .navbar-toggler {
-  align-self: center;
-  background-color: red; }
+  background-color: #3D9398;
+  width: 100%;
+  color: #fff;
+  display: block; }
 
-.navbar-nav {
+.navbar-collapse .navbar-nav {
   text-transform: uppercase; }
-  .navbar-nav .menu-item {
+  .navbar-collapse .navbar-nav .menu-item {
     margin-left: 1em; }
-    .navbar-nav .menu-item .nav-link {
+    .navbar-collapse .navbar-nav .menu-item .nav-link {
       font-weight: 700;
       transition: all .2s ease-in-out; }
-      .navbar-nav .menu-item .nav-link:after {
-        content: "";
-        display: block;
-        margin: 0 auto;
-        margin-top: 5px;
-        width: 0%;
-        transition: all .2s ease-in-out; }
-    .navbar-nav .menu-item.active .nav-link:after,
-    .navbar-nav .menu-item .nav-link:hover:after {
-      width: 65%;
-      border: 1px solid #3D9398; }
+      @media (min-width: 992px) {
+        .navbar-collapse .navbar-nav .menu-item .nav-link:after {
+          content: "";
+          display: block;
+          margin: 0 auto;
+          margin-top: 5px;
+          width: 0%;
+          transition: all .2s ease-in-out; } }
+    @media (min-width: 992px) {
+      .navbar-collapse .navbar-nav .menu-item.active .nav-link:after,
+      .navbar-collapse .navbar-nav .menu-item .nav-link:hover:after {
+        width: 65%;
+        border: 1px solid #3D9398; } }
 
 .post {
   margin-bottom: 3em;

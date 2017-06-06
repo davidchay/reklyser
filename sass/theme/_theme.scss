@@ -83,11 +83,7 @@
    .header-social{
      a{
        color:$brand-primary;
-       //margin-left:1em;
        font-size: 1.5em;
-       @include media-breakpoint-only(md) {
-           //font-size:16px;
-       }
        &:hover{
          color:$brand-primary-light;
        }
@@ -107,36 +103,45 @@
     }
 }
 .navbar-toggler{
-
-  align-self:center ;
-  background-color: red;
+  background-color: $brand-primary;
+  width:100%;
+  color:#fff;
+  display:block;
 }
-
-.navbar-nav{
-    text-transform: uppercase;
-    .menu-item{
-        margin-left:1em;
-        .nav-link{
-            font-weight: 700;
-            transition: all .2s ease-in-out;
-            &:after{
-                content:"";
-                display:block;
-                margin:0 auto;
-                margin-top:5px;
-                width:0%;
+.navbar-collapse {
+    .navbar-nav{
+        text-transform: uppercase;
+        .menu-item{
+            margin-left:1em;
+            .nav-link{
+                font-weight: 700;
                 transition: all .2s ease-in-out;
+                @include media-breakpoint-up(lg) {
+                    &:after{
+                        content:"";
+                        display:block;
+                        margin:0 auto;
+                        margin-top:5px;
+                        width:0%;
+                        transition: all .2s ease-in-out;
+                    }
+                
+                }
             }
-        }
-        &.active .nav-link,
-        .nav-link:hover{
-            &:after{
-                width:65%;
-                border:1px solid $brand-primary;
+            &.active .nav-link,
+            .nav-link:hover{
+                @include media-breakpoint-up(lg) {
+                    &:after{
+                        width:65%;
+                        border:1px solid $brand-primary;
+                    }
+                }
             }
         }
     }
+    
 }
+
 
 .post
 {

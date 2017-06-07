@@ -9595,6 +9595,118 @@ h1.navbar-brand a:hover {
         border-bottom: 10px solid transparent; }
 
 /*
+**Sidebar
+*/
+.widget-area {
+  padding: 0 1.4em;
+  margin-top: 2.5em;
+  position: relative; }
+  .widget-area .widget ul,
+  .widget-area #recentcomments ul {
+    padding-left: 0;
+    margin-left: 0; }
+    .widget-area .widget ul li,
+    .widget-area #recentcomments ul li {
+      display: block;
+      line-height: 1.5;
+      border-bottom: 1px solid #BFBCBB; }
+      .widget-area .widget ul li a,
+      .widget-area .widget ul li span,
+      .widget-area #recentcomments ul li a,
+      .widget-area #recentcomments ul li span {
+        display: inline-block;
+        padding: 0;
+        border-bottom: 1px solid transparent;
+        font-size: 1.125rem;
+        text-transform: capitalize;
+        color: #292b2c; }
+        .widget-area .widget ul li a:hover, .widget-area .widget ul li a:focus, .widget-area .widget ul li a:active,
+        .widget-area .widget ul li span:hover,
+        .widget-area .widget ul li span:focus,
+        .widget-area .widget ul li span:active,
+        .widget-area #recentcomments ul li a:hover,
+        .widget-area #recentcomments ul li a:focus,
+        .widget-area #recentcomments ul li a:active,
+        .widget-area #recentcomments ul li span:hover,
+        .widget-area #recentcomments ul li span:focus,
+        .widget-area #recentcomments ul li span:active {
+          color: #3D9398;
+          background-color: transparent; }
+      .widget-area .widget ul li::before,
+      .widget-area #recentcomments ul li::before {
+        font-family: 'FontAwesome';
+        color: #66746f;
+        display: inline-block;
+        margin-right: .8em; }
+      .widget-area .widget ul li .children li:last-child,
+      .widget-area .widget ul li .sub-menu li:last-child,
+      .widget-area .widget ul li .page_item_has_children li:last-child,
+      .widget-area #recentcomments ul li .children li:last-child,
+      .widget-area #recentcomments ul li .sub-menu li:last-child,
+      .widget-area #recentcomments ul li .page_item_has_children li:last-child {
+        border-bottom: none; }
+  .widget-area .widget_archive li::before {
+    font-family: 'FontAwesome';
+    content: "\f073";
+    /* FontAwesome Unicode */ }
+  .widget-area .widget_categories li::before {
+    content: "\f115";
+    /* FontAwesome Unicode */ }
+  .widget-area .widget_pages li::before {
+    content: "\f0f6"; }
+  .widget-area .widget_meta li::before {
+    content: "\f0c1"; }
+  .widget-area .widget_recent_comments li::before {
+    content: "\f0e5"; }
+  .widget-area .widget_recent_entries li::before {
+    content: "\f017"; }
+  .widget-area .widget_rss li {
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #3b4340; }
+    .widget-area .widget_rss li a {
+      display: block;
+      font-size: 1.135em; }
+    .widget-area .widget_rss li .rss-date {
+      font-size: 0.875rem;
+      display: block; }
+    .widget-area .widget_rss li .rssSummary {
+      padding: 1em 0 0;
+      font-weight: 300; }
+    .widget-area .widget_rss li cite {
+      text-align: right;
+      display: block; }
+    .widget-area .widget_rss li::last-child {
+      margin-bottom: auto;
+      border-bottom: none; }
+  .widget-area .widget_search label {
+    width: 100%; }
+  .widget-area .widget_search input[type="search"],
+  .widget-area select {
+    color: #292b2c;
+    width: 100%; }
+  .widget-area .widget_tag_cloud .tagcloud {
+    text-align: center;
+    line-height: 1.2rem; }
+  .widget-area .widget_nav_menu li::before {
+    content: "\f0da"; }
+  .widget-area .widget_nav_menu li li::before {
+    content: "\f148";
+    transform: rotate(90deg); }
+  .widget-area .widget_calendar .table {
+    background-color: #fff; }
+    .widget-area .widget_calendar .table caption {
+      text-align: center;
+      text-transform: capitalize;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #292b2c; }
+    .widget-area .widget_calendar .table th, .widget-area .widget_calendar .table td {
+      border: 1px solid #807E7C; }
+  .widget-area .widget_calendar .table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #BFBCBB; }
+
+/*
 * Use existing Bootstrap 4 classes and
 * variables to extend - override CF7 style
 *

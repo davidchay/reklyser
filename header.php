@@ -52,7 +52,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<div class="contact-head">
 			<div class="container">
 				<div class="row align-items-center">
-					<div class="col-12 col-md-10">
+					<div class="col-12 col-md-8">
 						<div class="row no-gutters content-header-info">
 							<div class="box-header-info col-12 col-md-4">
 								<div class="box-icon">
@@ -83,14 +83,14 @@ $container = get_theme_mod( 'understrap_container_type' );
 							</div>
 						</div><!-- ./row -->
 					</div>
-					<div class="col-12 col-md-2 text-center text-md-right">
+					<div class="col-12 col-md-4 text-center text-md-right">
 						<div class="row header-social">
-							<div class="col-6">
+							<div class="col-6 col-lg-3 offset-lg-6">
 								<a href="#">
 									<i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>
 								</a>
 							</div>
-							<div class="col-6">
+							<div class="col-6 col-lg-3">
 								<a href="#">
 									<i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
 								</a>

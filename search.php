@@ -25,8 +25,7 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 				<?php if ( have_posts() ) : ?>
 
 					<header class="page-header">
-						/* translators:*/
-							<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'understrap' ),
+							<h1 class="page-title"><?php printf( esc_html__( 'Resultados de la busqueda: %s', 'understrap' ),
 								'<span>' . get_search_query() . '</span>' ); ?></h1>
 
 					</header><!-- .page-header -->
@@ -54,7 +53,7 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 			</main><!-- #main -->
 
 			<!-- The pagination component -->
-			<?php understrap_pagination(); ?>
+			<?php _tk_pagination(); ?>
 
 		</div><!-- #primary -->
 

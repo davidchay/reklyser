@@ -9565,7 +9565,7 @@ h1.navbar-brand a:hover {
           color: #2A302E; }
       .post .content-post-wrapper .content-post .entry-content {
         width: 100%;
-        color: #BFBCBB;
+        color: #807E7C;
         line-height: 1.5; }
 
 .nav-links .nav-previous em,
@@ -9751,6 +9751,50 @@ h1.navbar-brand a:hover {
         color: #fff; }
   .widget-area .widget_calendar .table-striped > tbody > tr:nth-of-type(odd) {
     background-color: #BFBCBB; }
+
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw; }
+
+.page-template-fullwidthpage {
+  overflow-x: hidden; }
+  .page-template-fullwidthpage .entry-header {
+    position: relative;
+    background-color: #6CC8CC;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    margin-bottom: 3em;
+    padding-top: 120px;
+    padding-bottom: 120px; }
+    .page-template-fullwidthpage .entry-header:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      opacity: .85; }
+    .page-template-fullwidthpage .entry-header .entry-title {
+      text-transform: uppercase;
+      color: #000;
+      position: relative; }
+      .page-template-fullwidthpage .entry-header .entry-title:after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        margin-top: 15px;
+        transition: all .2s ease-in-out;
+        width: 95px;
+        border: 3px solid #3D9398; }
+
+.page-header {
+  margin-bottom: 3em; }
 
 /*
 * Use existing Bootstrap 4 classes and

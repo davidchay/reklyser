@@ -22,6 +22,21 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 	<div class="<?php echo esc_html( $container ); ?>" id="content" tabindex="-1">
 
 		<div class="row">
+			<header class="the-header-post">
+<div class="container">
+    <div class="row">
+        <div class="content-header-post col-sm-12 col-md-12">
+            <h1 class="page-title">
+        	    <?php the_title(); ?>
+            </h1>
+
+        </div> <!-- content-header-post  -->
+    </div><!-- .row -->
+</div><!-- .container -->
+</header><!-- .the header post -->
+		</div>
+
+		<div class="row">
 
 			<!-- Do the left sidebar check -->
 			<?php get_template_part( 'global-templates/left-sidebar-check', 'none' ); ?>

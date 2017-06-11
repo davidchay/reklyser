@@ -126,7 +126,7 @@
                         width:0%;
                         transition: all .2s ease-in-out;
                     }
-                
+
                 }
             }
             &.active .nav-link,
@@ -140,7 +140,7 @@
             }
         }
     }
-    
+
 }
 
 
@@ -238,7 +238,7 @@
                 }
                 .entry-content{
                    width: 100%;
-                    color:$gray-light;
+                    color:$gray;
                     line-height: 1.5;
                 }
             }//content-post
@@ -320,7 +320,7 @@
     padding:0 1.4em;
     margin-top: 2.5em;
     position: relative;
-    
+
   .widget,
   #recentcomments
   {
@@ -367,10 +367,10 @@
             {
                 border-bottom: none;
             }
-            }  
+            }
         }
         }
-    }    
+    }
   }
   .widget_archive
   {
@@ -380,9 +380,9 @@
       {
         font-family: 'FontAwesome';
         content: "\f073"; /* FontAwesome Unicode */
-      }  
+      }
     }
-    
+
   }
   .widget_categories
   {
@@ -391,7 +391,7 @@
       &::before
       {
         content: "\f115"; /* FontAwesome Unicode */
-      } 
+      }
 
     }
   }
@@ -470,7 +470,7 @@
         border-bottom: none;
       }
     }
-    
+
   }
   .widget_search{
     label{
@@ -490,7 +490,7 @@
     {
       text-align: center;
       line-height: $font-size-base * 1.2;
-    }  
+    }
   }
   .widget_nav_menu
   {
@@ -548,15 +548,71 @@
           color: #fff;
         }
       }
-        
+
     }
-    .table-striped 
+    .table-striped
     {
-      > tbody > tr:nth-of-type(odd) 
+      > tbody > tr:nth-of-type(odd)
       {
         background-color: $gray-light;
 
       }
-    }  
+    }
   }//.widget calendar
+}
+
+
+
+
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.page-template-fullwidthpage{
+  overflow-x: hidden;
+  .entry-header{
+      position: relative;
+      background-color:$brand-primary-light;
+      background-position: center;
+      background-size: cover;
+      text-align: center;
+      margin-bottom:3em;
+      padding-top:120px;
+      padding-bottom:120px;
+      &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        opacity: .85;
+
+      }
+      .entry-title{
+        text-transform: uppercase;
+        color:#000;
+        position: relative;
+        &:after{
+          content:"";
+          display:block;
+          margin:0 auto;
+          margin-top:15px;
+          transition: all .2s ease-in-out;
+          width:95px;
+          border:3px solid $brand-primary;
+
+        }
+      }
+    }
+}
+
+.page-header{
+  margin-bottom: 3em;
 }

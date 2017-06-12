@@ -573,9 +573,9 @@
   margin-right: -50vw;
 }
 
-.page-template-fullwidthpage{
-  overflow-x: hidden;
-  .entry-header{
+.page,
+.blog{
+  .page-header{
       position: relative;
       background-color:$brand-primary-light;
       background-position: center;
@@ -593,21 +593,50 @@
         bottom: 0;
         background: #fff;
         opacity: .85;
-
       }
-      .entry-title{
+      .page-title{
         text-transform: uppercase;
         color:#000;
         position: relative;
-        &:after{
-          content:"";
-          display:block;
-          margin:0 auto;
-          margin-top:15px;
-          transition: all .2s ease-in-out;
-          width:95px;
-          border:3px solid $brand-primary;
 
+      }
+      .separator{
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid #E6E6E6;
+        background: #fff;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        border-color: $brand-primary;
+        &:after,
+        &:before{
+            background: #DADADA;
+            content: '';
+            position: absolute;
+            top: 5px;
+            width: 50px;
+            height: 2px;
+            background: #E6E6E6;
+            z-index: -1;
+        }
+        &:before{
+          left: 14px;
+
+        }
+        &:after{
+          right: 14px;
+
+        }
+        .inner{
+          width: 6px;
+          height: 6px;
+          background: $brand-primary;
+          border-radius: 50%;
+          display: block;
+          margin: auto;
+          margin-top: 3px;
         }
       }
     }

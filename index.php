@@ -22,7 +22,27 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 <?php endif; ?>
 
 <div class="wrapper" id="wrapper-index">
-
+<?php if(is_home()):?>
+	<section>
+		<header class="page-header" style="background-image:url(<?php echo get_the_post_thumbnail_url( $post->ID, 'full' ); ?>);">
+			<div class="container">
+	    	<div class="row">
+					<div class="col-12">
+								<h1>Blog</h1>
+								<div class="breadcrumb">
+									<a href="http://localhost/wordpress" rel="v:url" property="v:title">Inicio</a>
+									<i class="fa fa-angle-right" aria-hidden="true"></i>
+									<span class="active">Blog</span>
+								</div>
+								<span class="separator">
+									<span class="inner"></span>
+								</span>
+	        </div> <!-- content-header-post  -->
+	    	</div><!-- .row -->
+			</div><!-- .container -->
+		</header><!-- .entry-header -->
+	</section>
+<?php endif; ?>
 	<div class="<?php echo esc_html( $container ); ?>" id="content" tabindex="-1">
 
 		<div class="row">

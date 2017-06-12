@@ -90,6 +90,7 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 					'priority'    => '20',
 				)
 			) );
+
 	}
 } // endif function_exists( 'understrap_theme_customize_register' ).
 add_action( 'customize_register', 'understrap_theme_customize_register' );
@@ -107,3 +108,75 @@ if ( ! function_exists( 'understrap_customize_preview_js' ) ) {
 	}
 }
 add_action( 'customize_preview_init', 'understrap_customize_preview_js' );
+
+//DE aqui para abajo no funciona
+if ( ! function_exists( 'understrap_reckyser_customize_register' ) ) {
+	/**
+	 * Register individual settings through customizer's API.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Customizer reference.
+	 */
+	function understrap_reckyser_customize_register( $wp_customize ) {
+
+		// Theme layout settings.
+		$wp_customize->add_section( 'understrap_theme_cover_options', array(
+			'title'       => __( 'Imagen de portada', 'understrap' ),
+			'capability'  => 'edit_theme_options',
+			'description' => __( 'Container width and sidebar defaults', 'understrap' ),
+			'priority'    => 180,
+		) );
+
+		$wp_customize->add_setting( 'understrap_container_type', array(
+			'default'           => 'container',
+			'type'              => 'theme_mod',
+			'sanitize_callback' => 'esc_textarea',
+			'capability'        => 'edit_theme_options',
+		) );
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'container_type', array(
+					'label'       => __( 'Container Width', 'understrap' ),
+					'description' => __( "Choose between Bootstrap's container and container-fluid", 'understrap' ),
+					'section'     => 'understrap_theme_layout_options',
+					'settings'    => 'understrap_container_type',
+					'type'        => 'select',
+					'choices'     => array(
+						'container'       => __( 'Fixed width container', 'understrap' ),
+						'container-fluid' => __( 'Full width container', 'understrap' ),
+					),
+					'priority'    => '10',
+				)
+			) );
+
+		$wp_customize->add_setting( 'understrap_sidebar_position', array(
+			'default'           => 'right',
+			'type'              => 'theme_mod',
+			'sanitize_callback' => 'esc_textarea',
+			'capability'        => 'edit_theme_options',
+		) );
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'understrap_sidebar_position', array(
+					'label'       => __( 'Sidebar Positioning', 'understrap' ),
+					'description' => __( "Set sidebar's default position. Can either be: right, left, both or none. Note: this can be overridden on individual pages.",
+					'understrap' ),
+					'section'     => 'understrap_theme_layout_options',
+					'settings'    => 'understrap_sidebar_position',
+					'type'        => 'select',
+					'choices'     => array(
+						'right' => __( 'Right sidebar', 'understrap' ),
+						'left'  => __( 'Left sidebar', 'understrap' ),
+						'both'  => __( 'Left & Right sidebars', 'understrap' ),
+						'none'  => __( 'No sidebar', 'understrap' ),
+					),
+					'priority'    => '20',
+				)
+			) );
+
+	}
+} // endif function_exists( 'understrap_theme_customize_register' ).
+add_action( 'customize_register', 'understrap_reckyser_customize_register' );

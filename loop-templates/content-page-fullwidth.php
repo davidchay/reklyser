@@ -8,12 +8,7 @@
 ?>
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-	<header class="entry-header full-width" style="background-image:url(<?php echo get_the_post_thumbnail_url( $post->ID, 'full' ); ?>);">
-
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
-	</header><!-- .entry-header -->
-
+	
 
 
 	<div class="entry-content">

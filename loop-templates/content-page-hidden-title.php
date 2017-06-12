@@ -13,7 +13,7 @@
 		<?php the_title( '<h1 class="entry-title screen-reader-text">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+	<?php //echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 
 	<div class="entry-content">
 

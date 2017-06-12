@@ -12,7 +12,21 @@ $container = get_theme_mod( 'understrap_container_type' );
 ?>
 
 <div class="wrapper" id="page-wrapper">
-
+	<section>
+		<header class="page-header" style="background-image:url(<?php echo get_the_post_thumbnail_url( $post->ID, 'full' ); ?>);">
+			<div class="container">
+	    	<div class="row">
+					<div class="col-12">
+								<?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
+								<?php if(function_exists('pietergoosen_breadcrumbs')) 	pietergoosen_breadcrumbs(); ?>
+								<span class="separator">
+									<span class="inner"></span>
+								</span>
+	        </div> <!-- content-header-post  -->
+	    	</div><!-- .row -->
+			</div><!-- .container -->
+		</header><!-- .entry-header -->
+	</section>
 	<div class="<?php echo esc_html( $container ); ?>" id="content">
 
 		<div class="row">
@@ -47,7 +61,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 			</div><!-- #primary -->
 
 			<?php get_sidebar( 'right' ); ?>
-			
+
 		</div><!-- .row -->
 
 	</div><!-- Container end -->

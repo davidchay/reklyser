@@ -18,23 +18,24 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 ?>
 
 <div class="wrapper" id="page-wrapper">
-
+<section>
+	<header class="page-header" style="background-image:url(<?php echo get_the_post_thumbnail_url( $post->ID, 'full' ); ?>);">
+		<div class="container">
+    	<div class="row">
+				<div class="col-12">
+							<?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
+							<?php if(function_exists('pietergoosen_breadcrumbs')) 	pietergoosen_breadcrumbs(); ?>
+							<span class="separator">
+								<span class="inner"></span>
+							</span>
+        </div> <!-- content-header-post  -->
+    	</div><!-- .row -->
+		</div><!-- .container -->
+	</header><!-- .entry-header -->
+</section>
 	<div class="<?php echo esc_html( $container ); ?>" id="content" tabindex="-1">
 
-		<div class="row">
-			<header class="the-header-post">
-<div class="container">
-    <div class="row">
-        <div class="content-header-post col-sm-12 col-md-12">
-            <h1 class="page-title">
-        	    <?php the_title(); ?>
-            </h1>
 
-        </div> <!-- content-header-post  -->
-    </div><!-- .row -->
-</div><!-- .container -->
-</header><!-- .the header post -->
-		</div>
 
 		<div class="row">
 

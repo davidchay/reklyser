@@ -283,7 +283,7 @@
             border-radius: 48px;
         }
         .comment-content{
-            background: $brand-secondary;
+            background: $gray-lighter;
             padding:.7em;
             border-radius:10px;
             position:relative;
@@ -302,7 +302,7 @@
                 position:absolute;
                 border-left:10px solid transparent;
                 border-right:10px solid transparent;
-                border-top:10px solid $brand-secondary;
+                border-top:10px solid $gray-lighter;
                 border-bottom:10px solid transparent;
             }
         }
@@ -577,7 +577,7 @@
 .blog{
   .page-header{
       position: relative;
-      background-color:$brand-primary-light;
+      background-color:$gray-lighter;
       background-position: center;
       background-size: cover;
       text-align: center;
@@ -592,7 +592,7 @@
         right: 0;
         bottom: 0;
         background: #fff;
-        opacity: .85;
+        opacity: .65;
       }
       .page-title{
         text-transform: uppercase;
@@ -644,4 +644,16 @@
 
 .page-header{
   margin-bottom: 3em;
+}
+
+.pagination{
+  .page-item{
+    margin-left: .2em;
+    margin-right:.2em;
+    &:first-child{
+      .page-link{
+        border:none;
+      }
+    }  
+  }
 }

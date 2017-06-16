@@ -22,7 +22,7 @@
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
-			<p><?php printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'understrap' ), array(
+			<p><?php printf( wp_kses( __( '¿Listo para publicar tu primer post? <a href="%1$s">Get started here</a>.', 'understrap' ), array(
 	'a' => array(
 		'href' => array(),
 	),
@@ -30,12 +30,12 @@
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'understrap' ); ?></p>
+			<p><?php esc_html_e( 'Lo sentimos, pero nada coincide con sus términos de búsqueda. Inténtelo de nuevo con algunas palabras clave diferentes.', 'understrap' ); ?></p>
 			<?php
 				get_search_form();
 		else : ?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'understrap' ); ?></p>
+			<p><?php esc_html_e( 'Parece que no podemos encontrar lo que buscas. Tal vez la búsqueda puede ayudar.', 'understrap' ); ?></p>
 			<?php
 				get_search_form();
 		endif; ?>

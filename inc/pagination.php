@@ -120,7 +120,7 @@ function _tk_pagination() {
         <ul class="pagination">
             <li class="page-item disabled hidden-sm-down">
                 <span class="page-link">
-                    <span aria-hidden="true"><?php _e('Pagina', '_tk'); ?> <?php echo $paged; ?> <?php _e('de', '_tk'); ?> <?php echo $pages; ?></span>
+                    <span aria-hidden="true"><?php _e('Página', '_tk'); ?> <?php echo $paged; ?> <?php _e('de', '_tk'); ?> <?php echo $pages; ?></span>
                 </span>
             </li>
             <li class="page-item hidden-sm-down"><a class="page-link" href="<?php echo get_pagenum_link(1); ?>" aria-label="First"><i class="fa fa-step-backward"></i></a></li>

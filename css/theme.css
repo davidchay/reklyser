@@ -9598,7 +9598,7 @@ h1.navbar-brand a:hover {
     .comment-list li .avatar {
       border-radius: 48px; }
     .comment-list li .comment-content {
-      background: #C71910;
+      background: #eceeef;
       padding: .7em;
       border-radius: 10px;
       position: relative;
@@ -9615,7 +9615,7 @@ h1.navbar-brand a:hover {
         position: absolute;
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
-        border-top: 10px solid #C71910;
+        border-top: 10px solid #eceeef;
         border-bottom: 10px solid transparent; }
 
 /*
@@ -9763,7 +9763,7 @@ h1.navbar-brand a:hover {
 .page .page-header,
 .blog .page-header {
   position: relative;
-  background-color: #6CC8CC;
+  background-color: #eceeef;
   background-position: center;
   background-size: cover;
   text-align: center;
@@ -9779,7 +9779,7 @@ h1.navbar-brand a:hover {
     right: 0;
     bottom: 0;
     background: #fff;
-    opacity: .85; }
+    opacity: .65; }
   .page .page-header .page-title,
   .blog .page-header .page-title {
     text-transform: uppercase;
@@ -9825,6 +9825,12 @@ h1.navbar-brand a:hover {
 
 .page-header {
   margin-bottom: 3em; }
+
+.pagination .page-item {
+  margin-left: .2em;
+  margin-right: .2em; }
+  .pagination .page-item:first-child .page-link {
+    border: none; }
 
 /*
 * Use existing Bootstrap 4 classes and

@@ -22,9 +22,21 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 <?php endif; ?>
 
 <div class="wrapper" id="wrapper-index">
-<?php if(is_home()):?>
+<?php
+	if(is_home()):
+		$cover_image = get_option( 'image_cover_header' );
+		$bg_cover 	 = get_theme_mod('background_cover_header');
+
+		$style='';
+		if(!empty($cover_image)){
+			$style="background-image:url(".$cover_image.");";
+		}
+		if(!empty($bg_cover)){
+			$style.="background-color:#".$bg_cover.";";
+		}
+?>
 	<section>
-		<header class="page-header" style="background-image:url(<?php echo get_the_post_thumbnail_url( $post->ID, 'full' ); ?>);">
+		<header class="page-header" style="<?php echo $style; ?>">
 			<div class="container">
 	    	<div class="row">
 					<div class="col-12">

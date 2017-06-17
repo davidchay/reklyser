@@ -9,11 +9,23 @@
 
 get_header();
 $container = get_theme_mod( 'understrap_container_type' );
+$cover_image = get_option( 'image_cover_header' );
+$bg_cover 	 = get_theme_mod('background_cover_header');
+if(has_post_thumbnail())
+	$cover_image = get_the_post_thumbnail_url( $post->ID, 'full' );
+
+$style='';
+if(!empty($cover_image)){
+	$style="background-image:url(".$cover_image.");";
+}
+if(!empty($bg_cover)){
+	$style.="background-color:#".$bg_cover.";";
+}
 ?>
 
 <div class="wrapper" id="page-wrapper">
 	<section>
-		<header class="page-header" style="background-image:url(<?php echo get_the_post_thumbnail_url( $post->ID, 'full' ); ?>);">
+		<header class="page-header" style="<?php echo $style; ?>">
 			<div class="container">
 	    	<div class="row">
 					<div class="col-12">

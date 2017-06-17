@@ -43,7 +43,7 @@ if ( ! function_exists( 'understrap_customize_register' ) ) {
 				)
 			)
 		);
-	
+
 
 	}
 }
@@ -115,8 +115,55 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 					'priority'    => '20',
 				)
 			) );
+			///Codigo nuevo
+			$wp_customize->add_section(
+					'understrap_section_cover',
+					array(
+						'title'	=> _('Portada','understrap'),
+						'capability'  => 'edit_theme_options',
+						'description' => __( 'Portada del sitio', 'understrap' ),
+						'priority' => 130,
+					));
+			//background cover
+			$wp_customize->add_setting(
+					'background_cover_header',
+					array(
+						'default'	=> '#eceeef',
+						'type'              => 'theme_mod',
+						'sanitize_callback' => 'sanitize_hex_color_no_hash',
 
-	}
+					));
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'background_cover_header',
+					array(
+						'label'       => __( 'Color de fondo', 'understrap' ),
+						'description' => __( "Selecciona el color de fondo que deseas que tenga la portada.",
+						'understrap' ),
+						'section' => 'understrap_section_cover'
+					))
+			);
+			//image cover
+			$wp_customize->add_setting(
+					'image_cover_header',
+					array(
+						'type'              => 'option',
+						//'sanitize_callback' => 'sanitize_hex_color_no_hash',
+
+					));
+			$wp_customize->add_control(
+				new WP_Customize_Image_Control(
+					$wp_customize,
+					'image_cover_header',
+					array(
+						'label'       => __( 'Imagen de fondo', 'understrap' ),
+						'description' => __( "Selecciona imagen de portada.",
+						'understrap' ),
+						'section' => 'understrap_section_cover'
+					))
+			);
+	}///end|
 } // endif function_exists( 'understrap_theme_customize_register' ).
 add_action( 'customize_register', 'understrap_theme_customize_register' );
 
@@ -144,7 +191,7 @@ function colourBrightness($hex, $percent) {
 	}
 	/// HEX TO RGB
 	$rgb = array(hexdec(substr($hex,0,2)), hexdec(substr($hex,2,2)), hexdec(substr($hex,4,2)));
-	//// CALCULATE 
+	//// CALCULATE
 	for ($i=0; $i<3; $i++) {
 		// See if brighter or darker
 		if ($percent > 0) {
@@ -191,7 +238,7 @@ function hex2rgb( $colour ) {
         $b = hexdec( $b );
         //return array( 'red' => $r, 'green' => $g, 'blue' => $b );
 		return $r.','.$g.','.$b;
-} 
+}
 // injectar CSS desde customizer
 function understrap_customizer_css(){
 	$primary_color= get_theme_mod('primary_color');
@@ -230,17 +277,17 @@ function understrap_customizer_css(){
 	.contact-head .header-social a:hover{
 		color:<?php echo $primary_color_light; ?>;
 	}
-	
-	.navbar-collapse .navbar-nav .menu-item .nav-link:hover:after, 
+
+	.navbar-collapse .navbar-nav .menu-item .nav-link:hover:after,
 	.navbar-collapse .navbar-nav .menu-item.active .nav-link:after{
 		border:1px solid <?php echo $primary_color; ?>;
 	}
 
-	.blog .page-header .separator, 
+	.blog .page-header .separator,
 	.page .page-header .separator{
 		border-color:<?php echo $primary_color; ?>;
 	}
-	.blog .page-header .separator .inner, 
+	.blog .page-header .separator .inner,
 	.page .page-header .separator .inner{
 		background:<?php echo $primary_color; ?>;
 	}
@@ -248,7 +295,7 @@ function understrap_customizer_css(){
 		background:rgba(<?php echo $primary_color_rgb;  ?>,.5);
 	}
 
-	
+
 	.post .content-post-wrapper .entry-meta .posted-on time{
 		background:<?php echo $primary_color; ?>;
 	}
@@ -256,21 +303,23 @@ function understrap_customizer_css(){
 		color:<?php echo $primary_color; ?>;
 	}
 	.page-item.active .page-link,
-	.page-item .page-link:hover{
+	.page-item .page-link:hover,
+	.page-item .page-link:active,
+	.page-item .page-link:focus{
 		background-color:<?php echo $primary_color; ?>;
 		border-color:<?php echo $primary_color; ?>;
 	}
-	.widget-area #recentcomments ul li a:hover, 
-	.widget-area #recentcomments ul li span:hover, 
-	.widget-area .widget ul li a:hover, 
+	.widget-area #recentcomments ul li a:hover,
+	.widget-area #recentcomments ul li span:hover,
+	.widget-area .widget ul li a:hover,
 	.widget-area .widget ul li span:hover{
 		color:<?php echo $primary_color; ?>;
 	}
-	.nav-links .nav-next a, 
+	.nav-links .nav-next a,
 	.nav-links .nav-previous a{
 		outline: 1px solid <?php echo $primary_color; ?>
 	}
-	.nav-links .nav-next a:hover, 
+	.nav-links .nav-next a:hover,
 	.nav-links .nav-previous a:hover{
 		background: <?php echo $primary_color; ?>
 	}

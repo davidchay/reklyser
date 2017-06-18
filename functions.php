@@ -79,7 +79,3 @@ require get_template_directory() . '/inc/editor.php';
 require get_template_directory() .'/inc/function-breadcrum.php';
 
 
-/**
- * Load custom WordPress option theme.
- */
-require get_template_directory() . '/inc/load-option-framework.php';

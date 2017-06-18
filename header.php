@@ -8,6 +8,17 @@
  */
 
 $container = get_theme_mod( 'understrap_container_type' );
+
+$address1 = get_theme_mod( 'address_info_header' );
+$address2 = get_theme_mod( 'address2_info_header' );
+$tel1 = get_theme_mod( 'tel_info_header' );
+$tel2 = get_theme_mod( 'tel2_info_header' );
+$hor1 = get_theme_mod( 'horario_info_header' );
+$hor2 = get_theme_mod( 'horario2_info_header' );
+$fcb = get_theme_mod( 'fcb_info_header' );
+$email = get_theme_mod( 'email_info_header' );
+
+$contactinfo=$address1.$address2.$tel1.$tel2.$hor1.$hor2.$fcb.$email;
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -48,60 +59,84 @@ $container = get_theme_mod( 'understrap_container_type' );
 		</div>
 
 
-
+		<?php if(!empty($contactinfo)): ?>
 		<div class="contact-head">
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-12 col-md-8">
 						<div class="row no-gutters content-header-info">
+							<?php if(!empty($address1) || !empty($address2)): ?>					
 							<div class="box-header-info col-12 col-md-4">
 								<div class="box-icon">
 									<i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
 								</div>
 								<div class="box-content">
-									Central Norte No. 142.
-									<span>Tapachula, Chiapas.</span>
+									<?php echo $address1; ?>
+									<span><?php echo $address2; ?></span>
 								</div>
 							</div>
+							<?php endif; ?>
+							<?php if(!empty($tel1) || !empty($tel2)): ?>
 							<div class="box-header-info col-12 col-md-4">
 								<div class="box-icon">
 									<i class="fa fa-phone fa-2x" aria-hidden="true"></i>
 								</div>
 								<div class="box-content">
-									(962) 62 6 74 03
-									<span>contacto@mail.com</span>
+									<?php echo $tel1; ?>
+									<span><?php echo $tel2; ?></span>
 								</div>
 							</div>
+							<?php endif; ?>
+							<?php if(!empty($hor1) || !empty($hor2)): ?>
 							<div class="box-header-info col-12 col-md-4">
 								<div class="box-icon">
 									<i class="fa fa-clock-o fa-2x" aria-hidden="true"></i>
 								</div>
 								<div class="box-content">
-									Lun-Vie de 9 - 17 hrs
-									<span>Sab de 9 - 14 hrs</span>
+									<?php echo $hor1; ?>
+									<span><?php echo $hor2; ?></span>
 								</div>
 							</div>
+							<?php endif; ?>
 						</div><!-- ./row -->
 					</div>
 					<div class="col-12 col-md-4 text-center text-md-right">
 						<div class="row header-social">
-							<div class="col-6 col-lg-3 offset-lg-6">
-								<a href="#">
+							<?php 
+							if(!empty($fcb) && !empty($email)) {
+								$classFace="col-6 col-lg-3 offset-lg-6";
+								$classMail="col-6 col-lg-3";
+							}elseif(empty($fcb) && !empty($email)){
+								$classFace="hidden-xl-down";
+								$classMail="col-12 col-lg-3 offset-lg-9";
+							}elseif(!empty($fcb) && empty($email)){
+								$classFace="col-12 col-lg-3 offset-lg-9";
+								$classMail="hidden-xl-down";
+							}elseif(empty($fcb) && empty($email)){
+								$classFace="hidden-xl-down";
+								$classMail="hidden-xl-down";
+							}
+
+							
+							?>
+							<div class="<?php echo $classFace; ?>">
+								<a href="<?php echo $fcb; ?>" target="_blank">
 									<i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>
 								</a>
 							</div>
-							<div class="col-6 col-lg-3">
-								<a href="#">
+							<div class="<?php echo $classMail; ?>">
+								<a href="mailto:<?php echo $email; ?>">
 									<i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
 								</a>
 							</div>
+							
 						</div><!-- ./row -->
 					</div>
 				</div><!-- ./row -->
 			</div>
 
 		</div>
-
+		<?php endif; ?>
 		<nav class="navbar navbar-toggleable-md  navbar-light" style="background-color:#FFF;">
 
 		<?php if ( 'container' == $container ) : ?>

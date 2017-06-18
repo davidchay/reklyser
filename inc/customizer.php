@@ -114,7 +114,7 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 					),
 					'priority'    => '20',
 				)
-			) 
+			)
 		);
 		///Seccion COVER
 		$wp_customize->add_section(
@@ -165,7 +165,7 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 				)
 			)
 		);
-		///Seccion Información Cabecera 
+		///Seccion Información Cabecera
 		$wp_customize->add_section(
 			'understrap_section_info',
 			array(
@@ -196,7 +196,7 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 					'section' => 'understrap_section_info',
 					'type' => 'text'
 				)
-			)	
+			)
 		);
 		//Dirección 2
 		$wp_customize->add_setting(
@@ -217,7 +217,7 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 					'section' => 'understrap_section_info',
 					'type' => 'text'
 				)
-			)	
+			)
 		);
 		//Teléfono
 		$wp_customize->add_setting(
@@ -239,7 +239,7 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 					'section' => 'understrap_section_info',
 					'type' => 'text'
 				)
-			)	
+			)
 		);
 		//Teléfono 2
 		$wp_customize->add_setting(
@@ -259,7 +259,7 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 					'section' => 'understrap_section_info',
 					'type' => 'text'
 				)
-			)	
+			)
 		);
 		//Horario
 		$wp_customize->add_setting(
@@ -281,7 +281,7 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 					'section' => 'understrap_section_info',
 					'type' => 'text'
 				)
-			)	
+			)
 		);
 		//Horario 2
 		$wp_customize->add_setting(
@@ -301,9 +301,9 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 					'section' => 'understrap_section_info',
 					'type' => 'text'
 				)
-			)	
+			)
 		);
-		
+
 		//Facebook
 		$wp_customize->add_setting(
 			'fcb_info_header',
@@ -323,7 +323,7 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 					'section' => 'understrap_section_info',
 					'type' => 'text'
 				)
-			)	
+			)
 		);
 		//Email
 		$wp_customize->add_setting(
@@ -344,9 +344,9 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 					'section' => 'understrap_section_info',
 					'type' => 'text'
 				)
-			)	
+			)
 		);
-			
+
 	}///end|
 } // endif function_exists( 'understrap_theme_customize_register' ).
 add_action( 'customize_register', 'understrap_theme_customize_register' );
@@ -426,6 +426,9 @@ function hex2rgb( $colour ) {
 // injectar CSS desde customizer
 function understrap_customizer_css(){
 	$primary_color= get_theme_mod('primary_color');
+	if(empty()$primary_color)){
+		$primary_color='#3d9398';
+	}
 	$primary_color_light=colourBrightness($primary_color,0.80);
 	$primary_color_rgb = hex2rgb( $primary_color );
 	//var_dump($primary_color_rgb);
@@ -455,9 +458,9 @@ function understrap_customizer_css(){
 	.contact-head .content-header-info .box-header-info .box-icon{
 		background:<?php echo $primary_color; ?>;
 		color:#FFFFFF;
-		
+
 	}
-	
+
 	.contact-head .header-social a{
 		color:<?php echo $primary_color; ?>;
 	}
@@ -514,11 +517,11 @@ function understrap_customizer_css(){
 		background-color:<?php echo $primary_color; ?>;
 	}
 
-	@media(min-width: 768px) { 
+	@media screen and (min-width: 768px) {
 		.contact-head .content-header-info .box-header-info .box-icon{
 			background:none;
-			color:<?php echo $primary_color; ?>;
-		}	
+			color:<?php echo $primary_color; ?>
+		}
 	}
 	</style>
 	<?php

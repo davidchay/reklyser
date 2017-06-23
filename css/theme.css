@@ -9823,6 +9823,12 @@ h1.navbar-brand a:hover {
       margin: auto;
       margin-top: 3px; }
 
+.page-template-fullwidthpage .page-header {
+  margin-bottom: 0; }
+
+.page-template-fullwidthpage .wrapper {
+  padding-bottom: 0px; }
+
 .page-header {
   margin-bottom: 3em; }
 
